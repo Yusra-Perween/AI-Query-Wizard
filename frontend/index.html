@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Query Wizard</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar for Schema -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <h2>Query Wizard</h2>
+            </div>
+            <div class="schema-section">
+                <h3>Database Schema</h3>
+                <div id="schema-container" class="schema-container">
+                    <div class="loading-spinner">Loading schema...</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-bar">
+                <h1>Natural Language to SQL Database</h1>
+            </header>
+
+            <div class="chat-area" id="chat-area">
+                <div class="message system-message">
+                    Welcome to Query Wizard! Ask a question about your database. For example: "Show me all employees in the Engineering department."
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-container">
+                <button id="voice-btn" class="icon-btn" title="Click to speak">
+                    <i class="fa-solid fa-microphone"></i>
+                </button>
+                <input type="text" id="query-input" placeholder="e.g. Find the highest paid employee..." autocomplete="off">
+                <button id="send-btn" class="icon-btn primary">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for Result Table -->
+    <div id="result-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="modal-header">
+                <h3>Query Results</h3>
+            </div>
+            <div class="sql-explanation">
+                <h4>Explanation:</h4>
+                <p id="explanation-text"></p>
+            </div>
+            <div class="sql-query-display">
+                <h4>Generated SQL:</h4>
+                <pre><code id="sql-text"></code></pre>
+            </div>
+            <div class="table-container">
+                <table id="result-table">
+                    <thead><tr id="table-head"></tr></thead>
+                    <tbody id="table-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+@echo off
+echo Starting Custom Query Wizard Backend...
+cd backend
+start cmd /k ".\venv\Scripts\python.exe main.py"
+echo Waiting for backend to start...
+timeout /t 3
+echo Opening Frontend...
+cd ..\frontend
+start index.html
